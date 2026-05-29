@@ -5,7 +5,23 @@
 #include <Adafruit_SSD1306.h>
 #include <vl53l4cd_class.h>
 #include "graphics.h"                     // Contains images for the OLED display
-#include "network.h"                     // Contains network info of the connected Wi-Fi
+
+
+// ============================================================
+//  NETWORK VARIABLES
+// ============================================================
+byte mac[6];
+String deviceMac = "";
+IPAddress deviceIP;
+int hostPort;
+
+char SSID[64] = "NETWORK_NAME";
+char PASSWORD[64] = "PASSWORD";
+
+bool   connSuccess  = false;
+String connMsg      = "";
+String connMsg2     = "";
+String availNetworks[5] = {};
 
 // ============================================================
 //  PIN DEFINITIONS
@@ -1258,4 +1274,5 @@ String kbChar(const char* c) {
   }
   return s;
 }
+
 
